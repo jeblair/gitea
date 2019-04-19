@@ -768,7 +768,7 @@ func RegisterRoutes(m *macaron.Macaron) {
 					ctx.NotFound("", nil)
 				})
 			}, ignSignInAndCsrf)
-			m.Any("/*", ignSignInAndCsrf, repo.HTTP)
+			m.Any("/*", ignSignInAndCsrf, context.RepoAssignment(), repo.HTTP)
 			m.Head("/tasks/trigger", repo.TriggerTask)
 		})
 	})
