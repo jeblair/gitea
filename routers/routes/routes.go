@@ -769,6 +769,7 @@ func RegisterRoutes(m *macaron.Macaron) {
 				})
 			}, ignSignInAndCsrf)
 			m.Any("/*", ignSignInAndCsrf, context.RepoAssignment(), repo.HTTP)
+			m.Any("\\.git/*", ignSignInAndCsrf, context.RepoAssignment(), repo.HTTP)
 			m.Head("/tasks/trigger", repo.TriggerTask)
 		})
 	})
